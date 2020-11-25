@@ -1,0 +1,8 @@
+C:\Users\ZA\source\repos\opc2web\opc2web\obj\Debug\opc2web.csprojResolveAssemblyReference.cache
+C:\Users\ZA\source\repos\opc2web\opc2web\obj\Debug\opc2web.csproj.CoreCompileInputs.cache
+C:\Users\ZA\source\repos\opc2web\opc2web\bin\Debug\opc2web.exe.config
+C:\Users\ZA\source\repos\opc2web\opc2web\bin\Debug\opc2web.exe
+C:\Users\ZA\source\repos\opc2web\opc2web\bin\Debug\opc2web.pdb
+C:\Users\ZA\source\repos\opc2web\opc2web\bin\Debug\OPCdotNETLib.dll
+C:\Users\ZA\source\repos\opc2web\opc2web\obj\Debug\opc2web.exe
+C:\Users\ZA\source\repos\opc2web\opc2web\obj\Debug\opc2web.pdb
