@@ -1,0 +1,8 @@
+C:\opc2web-client\opc2web-client\bin\opc2web-client.exe.config
+C:\opc2web-client\opc2web-client\bin\opc2web-client.exe
+C:\opc2web-client\opc2web-client\bin\opc2web-client.pdb
+C:\opc2web-client\opc2web-client\bin\OPCdotNETLib.dll
+C:\opc2web-client\opc2web-client\obj\Debug\opc2web-client.csproj.CoreCompileInputs.cache
+C:\opc2web-client\opc2web-client\obj\Debug\opc2web-client.exe
+C:\opc2web-client\opc2web-client\obj\Debug\opc2web-client.pdb
+C:\opc2web-client\opc2web-client\obj\Debug\opc2web-client.csprojResolveAssemblyReference.cache

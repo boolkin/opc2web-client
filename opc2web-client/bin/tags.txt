@@ -1,0 +1,4 @@
+0	numeric.sin.int16	1	0	s
+1	storage.bool.reg01	1	0	b
+2	numeric.sin.int16	-0,5	0	s
+3	storage.bool.reg02	1	0	!b

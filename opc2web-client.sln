@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "opc2web", "opc2web\opc2web.csproj", "{D135F1CB-7634-431F-8D3E-D66DE7159602}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "opc2web-client", "opc2web-client\opc2web-client.csproj", "{7AE98171-2F68-4A87-A97F-1530849F2B16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D135F1CB-7634-431F-8D3E-D66DE7159602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D135F1CB-7634-431F-8D3E-D66DE7159602}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D135F1CB-7634-431F-8D3E-D66DE7159602}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D135F1CB-7634-431F-8D3E-D66DE7159602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE98171-2F68-4A87-A97F-1530849F2B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE98171-2F68-4A87-A97F-1530849F2B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE98171-2F68-4A87-A97F-1530849F2B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE98171-2F68-4A87-A97F-1530849F2B16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0F8EBFCE-B6A8-4BB5-9B29-1FE17831BED3}
+		SolutionGuid = {4360F3F9-6CBB-4B06-AAD5-C20E32CCD67B}
 	EndGlobalSection
 EndGlobal
