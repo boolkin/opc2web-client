@@ -32,3 +32,5 @@ To view the list of tags, you can use any OPC client, for example, download it f
 You can check the client's work using the OPC server simulator, for example, GrayBox http://gray-box.net/download_graysim.php?lang=ru
 
 To access tags from any computer on the network, you need to install an HTTP server on the computer where this client is running, for example, nginx https://nginx.org/ru/download.html
+
+Video example how to use this software in practice https://www.youtube.com/watch?v=qFHPoPokgsc
