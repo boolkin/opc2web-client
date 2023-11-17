@@ -52,7 +52,7 @@ namespace CSSample
         private static float[] currentValues;
         private static string responseStringG = "";
         private static HttpListener listener = new HttpListener();
-        
+
         public void Work()
         {
             /*	try						// disabled for debugging
@@ -65,7 +65,7 @@ namespace CSSample
             // add our only working group
             theGrp = theSrv.AddGroup("OPCCSharp-Group", false, timeref);
 
-           
+
             if (sendtags > tags.Length) sendtags = tags.Length;
 
             var itemDefs = new OPCItemDef[tags.Length];
@@ -113,7 +113,6 @@ namespace CSSample
                 HttpListenerResponse response = context.Response;
                 context.Response.AddHeader("Access-Control-Allow-Origin", "*");
 
-
                 byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseStringG);
                 // Get a response stream and write the response to it.
                 response.ContentLength64 = buffer.Length;
@@ -156,11 +155,19 @@ namespace CSSample
                     }
                     try
                     {
-                        currentValues[s.HandleClient] = Convert.ToSingle(s.DataValue) * Single.Parse(ratios[s.HandleClient]) + Single.Parse(offsets[s.HandleClient]);
+                        if (isbool[s.HandleClient] == "s" || isbool[s.HandleClient] == "b" || isbool[s.HandleClient] == "!b")
+                        {
+                            currentValues[s.HandleClient] = Convert.ToSingle(s.DataValue) * Single.Parse(ratios[s.HandleClient]) + Single.Parse(offsets[s.HandleClient]);
+                        }
+                        else
+                        {
+                            isbool[s.HandleClient] = s.DataValue.ToString();
+                        }
                     }
-                    catch (FormatException fex) {
+                    catch (FormatException fex)
+                    {
                         Console.WriteLine("Неверный формат числа. Используй запятую вместо точки. {0} ", fex);
-                        File.WriteAllText("error"+ DateTime.Now.ToString("HHmmss") + ".txt", "Неверный формат числа. Используй запятую вместо точки." + "\n " + fex.ToString() + "\n " + fex.Message);
+                        File.WriteAllText("error" + DateTime.Now.ToString("HHmmss") + ".txt", "Неверный формат числа. Используй запятую вместо точки." + "\n " + fex.ToString() + "\n " + fex.Message);
                         theSrv.Disconnect();
                     }
                 }
@@ -168,27 +175,25 @@ namespace CSSample
                     Console.WriteLine(" ih={0}    ERROR=0x{1:x} !", s.HandleClient, s.Error);
             }
             string responseString = "{";
-            for (int i = 0; i < currentValues.Length - 1; i++)
+            for (int i = 0; i < currentValues.Length; i++)
             {
                 string value = "";
                 if ((isbool[i] == "b" && currentValues[i] == 1) || (isbool[i] == "!b" && currentValues[i] == 0)) value = "true";
                 else if ((isbool[i] == "b" && currentValues[i] == 0) || (isbool[i] == "!b" && currentValues[i] == 1)) value = "false";
-                else value = currentValues[i].ToString();
+                else if (isbool[i] == "s") value = currentValues[i].ToString();
+                else value = isbool[i];
                 responseString = responseString + "\"tag" + i + "\":\"" + value + "\", ";
 
             }
-            string valuelast = "";
-            int lasti = currentValues.Length - 1;
-            if ((isbool[lasti] == "b" && currentValues[lasti] == 1) || (isbool[lasti] == "!b" && currentValues[lasti] == 0)) valuelast = "true";
-            else if ((isbool[lasti] == "b" && currentValues[lasti] == 0) || (isbool[lasti] == "!b" && currentValues[lasti] == 1)) valuelast = "false";
-            else valuelast = currentValues[lasti].ToString();
-            responseString = responseString + "\"tag" + (lasti) + "\":\"" + valuelast + "\"}";
+            responseString = responseString.Remove(responseString.Length - 2) + "}";
             responseStringG = responseString;
 
-            byte[] byteArray = new byte[sendtags * 4];
-            Buffer.BlockCopy(currentValues, 0, byteArray, 0, byteArray.Length);
-
-            if (udpSend == "yes") UDPsend(byteArray);
+            if (udpSend == "yes")
+            {
+                byte[] byteArray = new byte[sendtags * 4];
+                Buffer.BlockCopy(currentValues, 0, byteArray, 0, byteArray.Length);
+                UDPsend(byteArray);
+            }
         }
 
         private static void UDPsend(byte[] datagram)
@@ -243,7 +248,7 @@ namespace CSSample
                     Console.WriteLine("Несоответствие столбцов, проверь что все столбцы заполнены и разделены табуляцией. {0} ", e);
                     File.WriteAllText("error" + DateTime.Now.ToString("HHmmss") + ".txt", "Несоответствие столбцов, проверь что все столбцы заполнены и разделены табуляцией." + "\n " + e.ToString() + "\n " + e.Message);
                 }
-                
+
             }
             string url = "http://*";
             string port = portNumb;

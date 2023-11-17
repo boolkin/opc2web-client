@@ -6,3 +6,11 @@ C:\opc2web-client\opc2web-client\obj\Debug\opc2web-client.csproj.CoreCompileInpu
 C:\opc2web-client\opc2web-client\obj\Debug\opc2web-client.exe
 C:\opc2web-client\opc2web-client\obj\Debug\opc2web-client.pdb
 C:\opc2web-client\opc2web-client\obj\Debug\opc2web-client.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\opc2web-client-master\opc2web-client\bin\opc2web-client.exe.config
+C:\Users\User\Desktop\opc2web-client-master\opc2web-client\bin\opc2web-client.exe
+C:\Users\User\Desktop\opc2web-client-master\opc2web-client\bin\opc2web-client.pdb
+C:\Users\User\Desktop\opc2web-client-master\opc2web-client\obj\Debug\opc2web-client.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\opc2web-client-master\opc2web-client\obj\Debug\opc2web-client.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\opc2web-client-master\opc2web-client\obj\Debug\opc2web-client.csproj.CopyComplete
+C:\Users\User\Desktop\opc2web-client-master\opc2web-client\obj\Debug\opc2web-client.exe
+C:\Users\User\Desktop\opc2web-client-master\opc2web-client\obj\Debug\opc2web-client.pdb

@@ -1,36 +1,36 @@
-OPC2WEB client is a program that connects to the OPC DA server specified in the config (opc2web-client.exe.config), collects the necessary tags (those specified in the tags.txt file), and returns their values ​​taking into account the coefficient and offset as a JSON string by the port specified in the config. That is, by opening the page 127.0.0.1:45455 in the browser (45455 is the port number from the config), you can see the values ​​of all tags from the tags.txt file. In order for the display of tags in the browser to be readable, you need to create a web page using AJAX that will pick up tags from the local host and display them in the browser. For example, like here https://github.com/boolkin/opc2web
+OPC2WEB client программа, которая подключается к указанному в конфиге (opc2web-client.exe.config) OPC DA серверу, собирает необходимые теги (те что указаны в файле tags.txt), и возвращает их значения с учетом коэффициента и смещения в виде JSON строки по указанному в конфиге порту. То есть открыв в браузере страницу 127.0.0.1:45455 (45455 - это номер порта из конфига) можно увидеть значения всех тегов из файла tags.txt. Для того чтобы отображение тегов в браузере было удобочитаемым, необходимо создать вебстраницу c использованием AJAX, которая будет забирать теги с локального хоста и отображать их в браузере. Например как тут https://github.com/boolkin/opc2web
 
-The tags.txt file format is 5 columns separated by tabs:
-
-No. Tag in OPC Coefficient Offset Boolean type
+Для удобства добавления тегов, можно все теги OPC сервера считать в один файл при помощи программы https://github.com/boolkin/OPC-TagList и потом копировать нужные в файл tags.txt
 
 
-Accordingly, tags are added in the same way:
+Формат файла tags.txt - это 5 столбцов разделенных табуляцией (его можно осткрыть и в экселе):
 
-0 [R04_15294_Z]zzz_test 0.5 0 b
-
-
-1 column - number in order from zero (0)
-
-2 column - tag name, as it is seen by OPC clients ([R04_15294_Z]zzz_test)
-
-3 column - coefficient or Gain by which the number is multiplied. The fractional part is separated by a comma, not a period. Put a minus in front of the digit if negative for example -5 without a space (0.5)
-
-4 column - offset or Offset which is added to the number. Both positive and negative offset (0) can be used
-
-5th column - boolean type sign - b - means bool (1 = true, 0 = false)!b - the same but with reverse logic (0 = true, 1 = false), the rest of the characters are ignored, but for convenience you can put s - single format.
-
-All columns are required, otherwise you will not be able to parse the data.
-
-After adding all the necessary lines with tags, save the file and restart the opc2web service, the new tags will automatically be pulled up.
-
-When text files with errors appear in the program folder, you can open it and see what could lead to the error: at the moment, only 2 exceptions are being processed - incorrect coefficient or offset format (a point instead of a comma or any unknown character, including a space) , as well as the wrong number of columns per line or not separated by tabs, there may be an extra line at the end
+№п/п	Тег в OPC	Коэффициент	Оффсет	Булевый тип
 
 
-To view the list of tags, you can use any OPC client, for example, download it for free from here https://www.kassl.de/opc/download.shtml
+Соответсвенно и добавляются теги таким же образом:
 
-You can check the client's work using the OPC server simulator, for example, GrayBox http://gray-box.net/download_graysim.php?lang=ru
+0	[R04_15294_Z]zzz_test	0,5	0	b
 
-To access tags from any computer on the network, you need to install an HTTP server on the computer where this client is running, for example, nginx https://nginx.org/ru/download.html
+1 столбец - номер по порядку от нуля (0)
 
-Video example how to use this software in practice https://www.youtube.com/watch?v=qFHPoPokgsc
+2 столбец - название тега, так как его видят OPC клиенты ([R04_15294_Z]zzz_test)
+
+3 столбец - коэффициент или Gain на который умножается число. Дробная часть отделяется запятой а не точкой. Перед цифрой ставить минус если отрицательный например -5 без пробела (0,5)
+
+4 столбец - смещение или Offset которое прибавляется к числу. Можно использовать как положительное, так и отрицательное смещение (0)
+
+5 столбец - признак булевого типа - b - означает bool (1 = true,0 = false) !b - то же но с обратной логикой (0 = true, 1 = false), s - single формат, t - текстовый формат.
+
+Все столбцы обязательны к заполнению, иначе не получится распарсить данные.
+
+После добавления всех необходимых строк с тегами сохраняем файл и перезапускаем службу opc2web, новые теги автоматически подтянутся.
+
+При появлении текстовых файлов с ошибками в папке с программой, можно открыть его и посмотреть что могло привести к ошибке: на данный момент пока обрабатываются только 2 исключения - неверный формат коэффициента или офсета (точка вместо запятой или любой неизвестный символ в том числе и пробел), а также неверное количество столбцов в строке или не разделены табуляцией, может быть лишняя строка в конце
+
+
+Чтобы посмотреть список тегов, можно воспользоваться любым OPC клиентом, например скачать бесплатно отсюда https://www.kassl.de/opc/download.shtml
+
+Проверить работу клиента, можно при помощи симулятора OPC сервера, например, GrayBox http://gray-box.net/download_graysim.php?lang=ru
+
+Чтобы получить доступ к тегам из любого компьютера внутри сети, нужно на компьютере где запущен этот клиент установить HTTP сервер, например, nginx https://nginx.org/ru/download.html
