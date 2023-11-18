@@ -161,7 +161,7 @@ namespace CSSample
                         }
                         else
                         {
-                            isbool[s.HandleClient] = s.DataValue.ToString();
+                            ratios[s.HandleClient] = s.DataValue.ToString();
                         }
                     }
                     catch (FormatException fex)
@@ -181,7 +181,7 @@ namespace CSSample
                 if ((isbool[i] == "b" && currentValues[i] == 1) || (isbool[i] == "!b" && currentValues[i] == 0)) value = "true";
                 else if ((isbool[i] == "b" && currentValues[i] == 0) || (isbool[i] == "!b" && currentValues[i] == 1)) value = "false";
                 else if (isbool[i] == "s") value = currentValues[i].ToString();
-                else value = isbool[i];
+                else value = ratios[i];
                 responseString = responseString + "\"tag" + i + "\":\"" + value + "\", ";
 
             }
